@@ -158,6 +158,17 @@ import logo from "@public/logo.webp";
     background: linear-gradient(135deg, #0a0015 0%, #1a0a2e 50%, #2d1b4e 100%);
   }
 
+  .website-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    min-height: 100vh;
+    padding: 4rem 1rem 2rem;
+    gap: 2.5rem;
+    overflow: hidden;
+  }
+
   .title {
     color: var(--purple2);
   }
@@ -311,6 +322,20 @@ import logo from "@public/logo.webp";
   .scale-shadow-out:hover,
   .scale-shadow-out:focus-visible {
     animation: scaleUpShadowIn 0.45s ease forwards;
+  }
+
+  *::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: rgba(138, 43, 226, 0.6);
+    border-radius: 4px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: transparent;
   }
 </style>
 
