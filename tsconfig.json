@@ -10,7 +10,9 @@
       "@ui/*": ["src/components/ui/*"],
       "@components/*": ["src/components/*"],
       "@icons/*": ["src/components/icons/*"],
+      "@constants/*": ["src/constants/*"],
       "@public/*": ["public/*"],
-    }
+    },
+    "types": ["@types/prismjs"]
   }
 }
