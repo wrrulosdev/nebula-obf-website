@@ -49,11 +49,11 @@ import logo from "@public/logo.webp";
     left: 0;
     width: 100%;
     height: var(--nav-height);
-    background: rgba(10, 0, 21, 0.9);
+    background: var(--nav-bg);
     backdrop-filter: blur(10px);
     padding: 30px 50px;
     z-index: 100;
-    border-bottom: 1px solid rgba(138, 43, 226, 0.3);
+    border-bottom: 1px solid var(--purple-border-light);
   }
 
   .nav-title {
@@ -99,7 +99,7 @@ import logo from "@public/logo.webp";
     right: 0;
     width: 200px;
     height: 100vh;
-    background: rgba(10, 0, 21, 0.95);
+    background: var(--nav-menu-bg);
     backdrop-filter: blur(10px);
     border-top-left-radius: 1rem;
     border-bottom-left-radius: 1rem;
@@ -132,12 +132,50 @@ import logo from "@public/logo.webp";
 
 <style is:global>
   :root {
+    /* Brand core colors */
     --purple1: #8a2be2;
     --purple2: #da70d6;
     --purple3: #9370db;
+
+    /* Neutral colors */
+    --white: #ffffff;
+    --gray-light: #dcdcdc;
+    --gray-star: #ffffff;
+    --dark-bg-1: #0a0015;
+    --dark-bg-2: #1a0a2e;
+    --dark-bg-3: #2d1b4e;
+
+    /* Navigation backgrounds */
+    --nav-bg: rgba(10, 0, 21, 0.9);
+    --nav-menu-bg: rgba(10, 0, 21, 0.95);
+
+    /* Borders & glows */
     --purple-glow-strong: rgba(138, 43, 226, 0.5);
     --purple-glow-soft: rgba(138, 43, 226, 0.4);
+    --purple-border-light: rgba(138, 43, 226, 0.3);
 
+    /* Glow Animations */
+    --glow-purple-1: rgba(138, 43, 226, 0.45);
+    --glow-purple-2: rgba(218, 112, 214, 0.9);
+    --glow-purple-3: rgba(218, 112, 214, 0.3);
+    --glow-purple-4: rgba(218, 112, 214, 0.75);
+    --glow-shadow-1: rgba(138, 43, 226, 0.2);
+    --glow-shadow-2: rgba(218, 112, 214, 0.45);
+    --glow-shadow-3: rgba(138, 43, 226, 0.25);
+
+    /* Scrollbar */
+    --scrollbar-thumb: rgba(138, 43, 226, 0.6);
+    --scrollbar-color: rgba(138, 43, 226, 0.5);
+
+    /* Website Gradients */
+    --gradient-main: linear-gradient(
+      135deg,
+      var(--dark-bg-1) 0%,
+      var(--dark-bg-2) 50%,
+      var(--dark-bg-3) 100%
+    );
+
+    /* Navbar */
     --nav-height: 90px;
     --padding-top-nav-section: 50px;
   }
@@ -157,7 +195,7 @@ import logo from "@public/logo.webp";
 
   body {
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #0a0015 0%, #1a0a2e 50%, #2d1b4e 100%);
+    background: var(--gradient-main);
   }
 
   .website-section {
@@ -176,7 +214,7 @@ import logo from "@public/logo.webp";
   }
 
   .subtitle {
-    color: #dcdcdc;
+    color: var(--gray-light);
     font-size: 1.15rem;
     line-height: 1.6;
   }
@@ -195,7 +233,7 @@ import logo from "@public/logo.webp";
     position: absolute;
     width: 2px;
     height: 2px;
-    background: white;
+    background: var(--gray-star);
     border-radius: 50%;
     opacity: 0.8;
   }
@@ -217,28 +255,28 @@ import logo from "@public/logo.webp";
 
   @keyframes textGlowPulse {
     0% {
-      text-shadow: 0 0 10px rgba(138, 43, 226, 0.45);
+      text-shadow: 0 0 10px var(--glow-purple-1);
     }
     50% {
-      text-shadow: 0 0 18px rgba(218, 112, 214, 0.9);
+      text-shadow: 0 0 18px var(--glow-purple-2);
     }
     100% {
-      text-shadow: 0 0 10px rgba(138, 43, 226, 0.45);
+      text-shadow: 0 0 10px var(--glow-purple-1);
     }
   }
 
   @keyframes textGlowSoftPulse {
     0% {
       opacity: 0.8;
-      text-shadow: 0 0 6px rgba(218, 112, 214, 0.3);
+      text-shadow: 0 0 6px var(--glow-purple-3);
     }
     50% {
       opacity: 1;
-      text-shadow: 0 0 14px rgba(218, 112, 214, 0.75);
+      text-shadow: 0 0 14px var(--glow-purple-4);
     }
     100% {
       opacity: 0.8;
-      text-shadow: 0 0 6px rgba(218, 112, 214, 0.3);
+      text-shadow: 0 0 6px var(--glow-purple-3);
     }
   }
 
@@ -257,13 +295,13 @@ import logo from "@public/logo.webp";
 
   @keyframes softDropShadowPulse {
     0% {
-      filter: drop-shadow(0 0 0px rgba(218, 112, 214, 0.1));
+      filter: drop-shadow(0 0 0px var(--glow-purple-3));
     }
     50% {
-      filter: drop-shadow(0 0 6px rgba(138, 43, 226, 0.25));
+      filter: drop-shadow(0 0 6px var(--glow-shadow-3));
     }
     100% {
-      filter: drop-shadow(0 0 0px rgba(218, 112, 214, 0.1));
+      filter: drop-shadow(0 0 0px var(--glow-purple-3));
     }
   }
 
@@ -271,12 +309,12 @@ import logo from "@public/logo.webp";
     0% {
       opacity: 0.9;
       transform: scale(1);
-      filter: drop-shadow(0 0 0px rgba(138, 43, 226, 0.2));
+      filter: drop-shadow(0 0 0px var(--glow-shadow-1));
     }
     100% {
       opacity: 1;
       transform: scale(1.06);
-      filter: drop-shadow(0 0 10px rgba(218, 112, 214, 0.45));
+      filter: drop-shadow(0 0 10px var(--glow-shadow-2));
     }
   }
 
@@ -284,12 +322,12 @@ import logo from "@public/logo.webp";
     0% {
       opacity: 1;
       transform: scale(1.06);
-      filter: drop-shadow(0 0 10px rgba(218, 43, 226, 0.45));
+      filter: drop-shadow(0 0 10px var(--glow-purple-2));
     }
     100% {
       opacity: 1;
       transform: scale(1);
-      filter: drop-shadow(0 0 0px rgba(138, 43, 226, 0.2));
+      filter: drop-shadow(0 0 0px var(--glow-shadow-1));
     }
   }
 
@@ -335,11 +373,11 @@ import logo from "@public/logo.webp";
   *::-webkit-scrollbar {
     width: 8px;
     height: 8px;
-    scrollbar-color: rgba(138, 43, 226, 0.5) transparent;
+    scrollbar-color: var(--scrollbar-color) transparent;
   }
 
   *::-webkit-scrollbar-thumb {
-    background-color: rgba(138, 43, 226, 0.6);
+    background-color: var(--scrollbar-thumb);
     border-radius: 4px;
   }
 
