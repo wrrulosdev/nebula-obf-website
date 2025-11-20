@@ -9,6 +9,7 @@
       "@scripts/*": ["src/scripts/*"],
       "@ui/*": ["src/components/ui/*"],
       "@components/*": ["src/components/*"],
+      "@icons/*": ["src/components/icons/*"],
       "@public/*": ["public/*"],
     }
   }
