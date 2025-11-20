@@ -1,22 +1,321 @@
+---
+import logo from "@public/logo.webp";
+---
+
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Nebula | Java Obfuscator</title>
+  </head>
+  <body>
+    <div class="stars" id="stars"></div>
+    <nav>
+      <div class="nav-title">
+        <img src={logo.src} alt="Nebula official logo" class="nav-logo" />
+        <h3>Nebula</h3>
+      </div>
+      <div
+        class="nav-toggle"
+        id="nav-toggle"
+        aria-label="Toggle navigation menu"
+        role="button"
+        tabindex="0"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <ul class="nav-urls" id="nav-urls">
+        <li class="nav-item"><a href="#features">Features</a></li>
+        <li class="nav-item"><a href="#pricing">Pricing</a></li>
+        <li class="nav-item"><a href="#discord">Discord</a></li>
+      </ul>
+    </nav>
+    <slot />
+  </body>
 </html>
 
 <style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    background: rgba(10, 0, 21, 0.9);
+    backdrop-filter: blur(10px);
+    padding: 30px 50px;
+    z-index: 100;
+    border-bottom: 1px solid rgba(138, 43, 226, 0.3);
+  }
+
+  .nav-title {
+    display: flex;
+    align-items: center;
+    color: var(--purple2);
+    gap: 8px;
+    font-size: 1.5rem;
+  }
+
+  .nav-logo {
+    height: 1.3em;
+    width: 1.3em;
+  }
+
+  .nav-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 25px;
+    height: 25px;
+    gap: 4px;
+    cursor: pointer;
+  }
+
+  .nav-toggle span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background: var(--purple2);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+    z-index: 100;
+  }
+
+  .nav-toggle span.open {
+    margin-left: 20px;
+  }
+
+  .nav-urls {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 200px;
+    height: 100vh;
+    background: rgba(10, 0, 21, 0.95);
+    backdrop-filter: blur(10px);
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 100px 20px 20px 20px;
+    gap: 2rem;
+    font-size: 1.1rem;
+
+    pointer-events: none;
+    visibility: hidden;
+
+    transform: translateX(calc(100% + 20px));
+    transition:
+      transform 0.28s ease,
+      visibility 0.28s ease;
+  }
+
+  .nav-urls.open {
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateX(0);
+  }
+
+  .nav-item a {
+    color: #fff;
+  }
 </style>
+
+<style is:global>
+  :root {
+    --purple1: #8a2be2;
+    --purple2: #da70d6;
+    --purple3: #9370db;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+  }
+
+  html,
+  body {
+    overflow-x: hidden;
+  }
+
+  body {
+    min-height: 100vh;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #0a0015 0%, #1a0a2e 50%, #2d1b4e 100%);
+  }
+
+  .title {
+    color: var(--purple2);
+  }
+
+  .stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  .star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.8;
+  }
+
+  /* Animations */
+
+  @keyframes fadeSlideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-25px) scale(0.96);
+      filter: blur(6px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      filter: blur(0);
+    }
+  }
+
+  @keyframes titleGlow {
+    0% {
+      text-shadow: 0 0 10px rgba(138, 43, 226, 0.45);
+    }
+    50% {
+      text-shadow: 0 0 18px rgba(218, 112, 214, 0.9);
+    }
+    100% {
+      text-shadow: 0 0 10px rgba(138, 43, 226, 0.45);
+    }
+  }
+
+  @keyframes glowPulse {
+    0% {
+      opacity: 0.8;
+      text-shadow: 0 0 6px rgba(218, 112, 214, 0.3);
+    }
+    50% {
+      opacity: 1;
+      text-shadow: 0 0 14px rgba(218, 112, 214, 0.75);
+    }
+    100% {
+      opacity: 0.8;
+      text-shadow: 0 0 6px rgba(218, 112, 214, 0.3);
+    }
+  }
+
+  @keyframes fadeSlideUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+      filter: blur(6px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+    }
+  }
+
+  @keyframes subtitleGlow {
+    0% {
+      filter: drop-shadow(0 0 0px rgba(218, 112, 214, 0.1));
+    }
+    50% {
+      filter: drop-shadow(0 0 6px rgba(138, 43, 226, 0.25));
+    }
+    100% {
+      filter: drop-shadow(0 0 0px rgba(218, 112, 214, 0.1));
+    }
+  }
+
+  @keyframes buttonHoverIn {
+    0% {
+      opacity: 0.9;
+      transform: scale(1);
+      filter: drop-shadow(0 0 0px rgba(138, 43, 226, 0.2));
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1.06);
+      filter: drop-shadow(0 0 10px rgba(218, 112, 214, 0.45));
+    }
+  }
+
+  @keyframes buttonHoverOut {
+    0% {
+      opacity: 1;
+      transform: scale(1.06);
+      filter: drop-shadow(0 0 10px rgba(218, 112, 214, 0.45));
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+      filter: drop-shadow(0 0 0px rgba(138, 43, 226, 0.2));
+    }
+  }
+
+  .text-animated-title {
+    animation:
+      fadeSlideDown 1.2s ease forwards,
+      titleGlow 3.5s infinite ease-in-out 1.2s;
+  }
+
+  .text-glow-pulse {
+    animation: glowPulse 3s infinite ease-in-out;
+    color: var(--purple2);
+    font-weight: bold;
+    font-size: 1.3rem;
+  }
+
+  .text-animated-subtitle {
+    animation:
+      fadeSlideUp 1.2s ease forwards 0.25s,
+      subtitleGlow 4.5s infinite ease-in-out 1.5s;
+  }
+
+  .btn-animated {
+    display: inline-block;
+    transition: none;
+    animation: buttonHoverOut 0.4s ease forwards;
+  }
+
+  .btn-animated:hover,
+  .btn-animated:focus-visible {
+    animation: buttonHoverIn 0.45s ease forwards;
+  }
+</style>
+
+<script>
+  import { generateStars } from "@scripts/ui/stars";
+  generateStars();
+
+  const navToggle: HTMLElement | null = document.getElementById("nav-toggle");
+  const navUrls: HTMLElement | null = document.getElementById("nav-urls");
+  const hamburgerSpans: NodeListOf<HTMLSpanElement> | undefined =
+    navToggle?.querySelectorAll("span");
+
+  navToggle?.addEventListener("click", () => {
+    navUrls?.classList.toggle("open");
+
+    if (hamburgerSpans) {
+      hamburgerSpans.forEach((span, _) => {
+        span.classList.toggle("open");
+      });
+    }
+  });
+</script>
