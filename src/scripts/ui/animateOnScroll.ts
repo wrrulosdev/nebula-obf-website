@@ -1,7 +1,7 @@
 const ANIMATE_CLASSES: string[] = [
-  ".text-animate-fade-slide-down",
+  ".animate-fade-slide-down",
   ".text-glow-pulse",
-  ".text-animate-fade-slide-up",
+  ".animate-fade-slide-up",
 ];
 
 /**

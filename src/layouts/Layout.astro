@@ -274,16 +274,16 @@ import logo from "@public/logo.webp";
     }
   }
 
-  .text-animate-fade-slide-down,
+  .animate-fade-slide-down,
   .text-glow-pulse,
-  .text-animate-fade-slide-up {
+  .animate-fade-slide-up {
     opacity: 0;
     transform: translateY(20px);
     filter: blur(6px);
     transition: none;
   }
 
-  .text-animate-fade-slide-down.active {
+  .animate-fade-slide-down.active {
     animation:
       fadeInSlideDown 1.2s ease forwards,
       textGlowPulse 3.5s infinite ease-in-out 1.2s;
@@ -296,7 +296,7 @@ import logo from "@public/logo.webp";
     font-size: 1.3rem;
   }
 
-  .text-animate-fade-slide-up.active {
+  .animate-fade-slide-up.active {
     animation:
       fadeInSlideUp 1.2s ease forwards 0.25s,
       softDropShadowPulse 4.5s infinite ease-in-out 1.5s;
