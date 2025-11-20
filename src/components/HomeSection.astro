@@ -3,19 +3,20 @@ import Button from "@ui/Button.astro";
 ---
 
 <section class="home">
-  <h1 class="title text-animated-title">Nebula Obfuscator</h1>
-
-  <p class="changing-text text-glow-pulse">
+  <h1 class="title text-animate-fade-slide-down">Nebula Obfuscator</h1>
+  <p class="changing-text text-glow-pulse text-animate-fade-slide-up">
     Enterprise-level security · High performance · Anti-reverse engineering
   </p>
-
-  <p class="subtitle text-animated-subtitle">
+  <p class="subtitle
+text-animate-fade-slide-up">
     Protect your Java applications with advanced bytecode obfuscation engineered
     for security, stability and professional pipelines.
   </p>
-
-  <Button text="Get Started" url="https://discord.gg/USU58JPSCA" />
-
+  <Button
+    className="scale-shadow-out"
+    text="Get Started"
+    url="https://discord.gg/USU58JPSCA"
+  />
   <article class="stats">
     <div>
       <h3 class="stat-number" data-count-target="120000" data-suffix=""></h3>
@@ -44,22 +45,18 @@ import Button from "@ui/Button.astro";
     gap: 2.5rem;
     overflow: hidden;
   }
-
   .title {
     font-size: 3rem;
   }
-
   .subtitle {
     color: #dcdcdc;
     font-size: 1.15rem;
     max-width: 650px;
   }
-
   .cta-secondary:hover {
     background: var(--purple2);
     color: #0d0018;
   }
-
   .stats {
     margin-top: 2rem;
     display: flex;
@@ -67,7 +64,6 @@ import Button from "@ui/Button.astro";
     flex-wrap: wrap;
     justify-content: center;
   }
-
   .stats div {
     background: rgba(255, 255, 255, 0.04);
     border: 1px solid rgba(138, 43, 226, 0.2);
@@ -77,18 +73,15 @@ import Button from "@ui/Button.astro";
     backdrop-filter: blur(6px);
     transition: 0.3s ease;
   }
-
   .stats div:hover {
     transform: translateY(-8px);
     border-color: var(--purple2);
     box-shadow: 0 0 18px rgba(138, 43, 226, 0.25);
   }
-
   .stats h3 {
     color: var(--purple2);
     font-size: 1.6rem;
   }
-
   .stats span {
     color: #dcdcdc;
     font-size: 0.9rem;

@@ -178,7 +178,7 @@ import logo from "@public/logo.webp";
 
   /* Animations */
 
-  @keyframes fadeSlideDown {
+  @keyframes fadeInSlideDown {
     from {
       opacity: 0;
       transform: translateY(-25px) scale(0.96);
@@ -191,7 +191,7 @@ import logo from "@public/logo.webp";
     }
   }
 
-  @keyframes titleGlow {
+  @keyframes textGlowPulse {
     0% {
       text-shadow: 0 0 10px rgba(138, 43, 226, 0.45);
     }
@@ -203,7 +203,7 @@ import logo from "@public/logo.webp";
     }
   }
 
-  @keyframes glowPulse {
+  @keyframes textGlowSoftPulse {
     0% {
       opacity: 0.8;
       text-shadow: 0 0 6px rgba(218, 112, 214, 0.3);
@@ -218,7 +218,7 @@ import logo from "@public/logo.webp";
     }
   }
 
-  @keyframes fadeSlideUp {
+  @keyframes fadeInSlideUp {
     from {
       opacity: 0;
       transform: translateY(20px);
@@ -231,7 +231,7 @@ import logo from "@public/logo.webp";
     }
   }
 
-  @keyframes subtitleGlow {
+  @keyframes softDropShadowPulse {
     0% {
       filter: drop-shadow(0 0 0px rgba(218, 112, 214, 0.1));
     }
@@ -243,7 +243,7 @@ import logo from "@public/logo.webp";
     }
   }
 
-  @keyframes buttonHoverIn {
+  @keyframes scaleUpShadowIn {
     0% {
       opacity: 0.9;
       transform: scale(1);
@@ -256,11 +256,11 @@ import logo from "@public/logo.webp";
     }
   }
 
-  @keyframes buttonHoverOut {
+  @keyframes scaleDownShadowOut {
     0% {
       opacity: 1;
       transform: scale(1.06);
-      filter: drop-shadow(0 0 10px rgba(218, 112, 214, 0.45));
+      filter: drop-shadow(0 0 10px rgba(218, 43, 226, 0.45));
     }
     100% {
       opacity: 1;
@@ -269,38 +269,50 @@ import logo from "@public/logo.webp";
     }
   }
 
-  .text-animated-title {
-    animation:
-      fadeSlideDown 1.2s ease forwards,
-      titleGlow 3.5s infinite ease-in-out 1.2s;
+  .text-animate-fade-slide-down,
+  .text-glow-pulse,
+  .text-animate-fade-slide-up {
+    opacity: 0;
+    transform: translateY(20px);
+    filter: blur(6px);
+    transition: none;
   }
 
-  .text-glow-pulse {
-    animation: glowPulse 3s infinite ease-in-out;
+  .text-animate-fade-slide-down.active {
+    animation:
+      fadeInSlideDown 1.2s ease forwards,
+      textGlowPulse 3.5s infinite ease-in-out 1.2s;
+  }
+
+  .text-glow-pulse.active {
+    animation: textGlowSoftPulse 3s infinite ease-in-out;
     color: var(--purple2);
     font-weight: bold;
     font-size: 1.3rem;
   }
 
-  .text-animated-subtitle {
+  .text-animate-fade-slide-up.active {
     animation:
-      fadeSlideUp 1.2s ease forwards 0.25s,
-      subtitleGlow 4.5s infinite ease-in-out 1.5s;
+      fadeInSlideUp 1.2s ease forwards 0.25s,
+      softDropShadowPulse 4.5s infinite ease-in-out 1.5s;
   }
 
-  .btn-animated {
+  .scale-shadow-out {
     display: inline-block;
     transition: none;
-    animation: buttonHoverOut 0.4s ease forwards;
+    animation: scaleDownShadowOut 0.4s ease forwards;
   }
 
-  .btn-animated:hover,
-  .btn-animated:focus-visible {
-    animation: buttonHoverIn 0.45s ease forwards;
+  .scale-shadow-out:hover,
+  .scale-shadow-out:focus-visible {
+    animation: scaleUpShadowIn 0.45s ease forwards;
   }
 </style>
 
 <script>
+  import { initAnimateOnScroll } from "@scripts/ui/animateOnScroll";
+  initAnimateOnScroll();
+
   import { generateStars } from "@scripts/ui/stars";
   generateStars();
 
