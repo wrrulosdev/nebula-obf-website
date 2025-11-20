@@ -5,12 +5,10 @@ const { title, code } = Astro.props;
 const highlightedCode = Prism.highlight(code, Prism.languages.java, "java");
 ---
 
-<article class="card animate-fade-slide-up">
+<article class="card">
   <h3 class="card-title">{title}</h3>
   <pre
-    class="code-block">
-    <code class="language-java" set:html={highlightedCode} />
-  </pre>
+    class="code-block"><code class="language-java" set:html={highlightedCode} /></pre>
 </article>
 
 <style>
@@ -33,7 +31,7 @@ const highlightedCode = Prism.highlight(code, Prism.languages.java, "java");
     margin-bottom: 1rem;
     padding: 0.75rem 1rem;
     background: linear-gradient(135deg, var(--purple1), var(--purple2));
-    box-shadow: 0 4px 15px rgba(138, 43, 226, 0.4);
+    box-shadow: 0 4px 15px var(--purple-glow-soft);
     border-radius: 8px;
     font-weight: 600;
     font-size: clamp(1rem, 2vw, 1.25rem);
@@ -54,9 +52,6 @@ const highlightedCode = Prism.highlight(code, Prism.languages.java, "java");
     font-size: clamp(0.75rem, 1.5vw, 0.9rem);
     line-height: 1.6;
     box-sizing: border-box;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: thin;
-    scrollbar-color: rgba(138, 43, 226, 0.5) transparent;
   }
 
   @media (min-width: 640px) {
