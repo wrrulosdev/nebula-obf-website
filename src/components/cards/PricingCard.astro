@@ -8,7 +8,7 @@ const {
 } = Astro.props;
 ---
 
-<article class="pricing-card">
+<article class="pricing-card animate-fade-slide-up">
   <h3 class="tier">{tier}</h3>
   <p class="price">{price}</p>
 
@@ -30,7 +30,6 @@ const {
 <style>
   .pricing-card {
     width: 100%;
-    max-width: 360px;
     padding: 32px 28px;
     border-radius: 14px;
     background: linear-gradient(135deg, #2d1b4e 0%, #1a0a2e 100%);
@@ -40,7 +39,9 @@ const {
     text-align: center;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     gap: 24px;
+    min-height: 420px;
   }
 
   .tier {
@@ -62,10 +63,12 @@ const {
     padding: 0;
     margin: 0;
     text-align: left;
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
     gap: 14px;
     color: #d9c7f5;
+    overflow-y: auto;
   }
 
   .features li {
@@ -92,6 +95,7 @@ const {
     color: var(--purple2);
     font-weight: 700;
     transition: 0.25s ease;
+    flex-shrink: 0;
   }
 
   .action-btn:hover {
