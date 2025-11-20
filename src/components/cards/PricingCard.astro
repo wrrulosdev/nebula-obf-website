@@ -1,9 +1,9 @@
 ---
+import Button from "@ui/Button.astro";
 const {
   tier = "Community",
   price = "Gratis",
   features = [],
-  buttonText = "Comenzar",
   buttonUrl = "#",
 } = Astro.props;
 ---
@@ -22,14 +22,11 @@ const {
     }
   </ul>
 
-  <a
-    href={buttonUrl}
-    target="_blank"
-    rel="noopener noreferrer"
-    class="action-btn"
-  >
-    {buttonText}
-  </a>
+  <Button
+    className="animate-fade-slide-up action-btn"
+    text="Buy Now"
+    url={buttonUrl}
+  />
 </article>
 
 <style>
@@ -88,19 +85,6 @@ const {
     color: var(--purple2);
     margin-right: 10px;
     font-weight: bold;
-  }
-
-  .action-btn {
-    display: block;
-    text-decoration: none;
-    background: transparent;
-    border: 2px solid var(--purple2);
-    padding: 14px 24px;
-    border-radius: 8px;
-    color: var(--purple2);
-    font-weight: 700;
-    transition: 0.25s ease;
-    flex-shrink: 0;
   }
 
   .action-btn:hover {
