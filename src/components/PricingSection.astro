@@ -1,4 +1,5 @@
 ---
+import { discordUrl } from "@constants/urls";
 import PricingCard from "./cards/PricingCard.astro";
 
 const pricingPlans = [
@@ -14,8 +15,8 @@ const pricingPlans = [
       "Generic flow",
       "Useless code remover",
     ],
-    buttonText: "Comenzar",
-    buttonUrl: "#",
+    buttonText: "Buy now",
+    buttonUrl: discordUrl,
   },
   {
     tier: "Advanced",
@@ -27,8 +28,8 @@ const pricingPlans = [
       "Useless tcb insertion",
       "Light opaque predicates",
     ],
-    buttonText: "Comprar",
-    buttonUrl: "#",
+    buttonText: "Buy now",
+    buttonUrl: discordUrl,
   },
 ];
 ---

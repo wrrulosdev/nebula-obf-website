@@ -1,4 +1,5 @@
 ---
+import { discordUrl } from "@constants/urls";
 import Button from "@ui/Button.astro";
 
 type Stat = {
@@ -27,7 +28,7 @@ animate-fade-slide-up">
   <Button
     className="scale-shadow-out animate-fade-slide-up"
     text="Get Started"
-    url="https://discord.gg/USU58JPSCA"
+    url={discordUrl}
   />
   <article class="stats">
     {
