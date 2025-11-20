@@ -152,6 +152,35 @@ import logo from "@public/logo.webp";
     padding: 0 20px;
     white-space: normal;
   }
+
+  @media (min-width: 769px) {
+    .nav-toggle {
+      display: none;
+    }
+
+    .nav-urls {
+      position: static;
+      width: auto;
+      height: auto;
+      background: transparent;
+      backdrop-filter: none;
+      border-radius: 0;
+      flex-direction: row;
+      padding: 0;
+      gap: 2rem;
+      font-size: 1rem;
+
+      pointer-events: auto;
+      visibility: visible;
+      transform: none;
+      transition: none;
+    }
+
+    .nav-item a {
+      color: #fff;
+      font-weight: 550;
+    }
+  }
 </style>
 
 <style is:global>
